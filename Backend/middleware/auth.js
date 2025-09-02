@@ -7,48 +7,40 @@ const User = require("../models/User") ;
 
 //Auth
 //Auth
-exports.auth = async (req , res  ,next) => {
+exports.auth = async (req, res, next) => {
   try {
-    console.log("💬 Cookies:", req.cookies);
-    console.log("💬 Headers:", req.headers);
-    console.log("💬 Body:", req.body);
-
-    const token = req.cookies.token
-                || req.body.token
-                || req.header("Authorization")?.replace("Bearer ", "") ;
-
-    console.log("Auth middleware triggered");
-    console.log("Authorization Header:", req.headers.authorization);
-    console.log("🪪 Extracted Token:", token);
-
-    if(!token){
+    const token =
+      req.cookies?.token || 
+      req.body?.token || 
+      (req.headers.authorization && req.headers.authorization.split(" ")[1]);
+console.log("Cookies:", req.cookies);
+console.log("Auth Header:", req.headers.authorization);
+    if (!token) {
       return res.status(401).json({
-        success : false ,
-        message : "Token is missing" ,
+        success: false,
+        message: "No token provided",
       });
     }
 
     try {
-      const decode = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decode);
-req.user = decode;    
-  console.log("JWT verified successfully");
-    } catch(err) {
-      return res.status(401).json({   // ✅ ADD RETURN
-        success : false ,
-        message : "Invalid token !!" ,
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = decoded; 
+      next();
+    } catch (error) {
+      return res.status(401).json({
+        success: false,
+        message: "Token is invalid",
       });
     }
 
-    next(); // ✅ Only called if verification succeeds
-  }
-  catch(error){
-    return res.status(401).json({   // ✅ ADD RETURN
-      success : false ,
-      message : "Something went wrong while verifying token",
+  } catch (err) {
+    console.error("Error in auth middleware:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong during authentication",
     });
   }
-}
+};
 
 
 
