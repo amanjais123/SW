@@ -24,7 +24,7 @@ const SignupPage = () => {
       setLoading(true);
       setFormData(data);
 
-      await axios.post(`${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/sendotp`, {
+      await axios.post(`${import.meta.env.VITE_PUBLIC_API}api/v1/auth/sendotp`, {
         email: data.email,
       });
 
@@ -44,7 +44,7 @@ const SignupPage = () => {
       const finalData = { ...formData, otp: otpData.otp };
 
       const res = await axios.post(
-        `${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/signup`,
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/auth/signup`,
         finalData
       );
 

@@ -9,7 +9,7 @@ const TeamsPage = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_PUBLIC_API}/api/v1/team/teams`);
+        const res = await axios.get(`${import.meta.env.VITE_PUBLIC_API}api/v1/team/teams`);
         setTeams(res.data.data || []);
       } catch (err) {
         console.error("Error fetching teams:", err);
