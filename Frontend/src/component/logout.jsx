@@ -12,7 +12,7 @@ const Logout = () => {
       try {
         // ✅ Call backend logout (cookies will be cleared server-side)
         await axios.post(
-          "http://localhost:4000/api/v1/auth/logout",
+          `${import.meta.env.VITE_PUBLIC_API}api/v1/auth/logout`,
           {},
           { withCredentials: true } // send cookies
         );

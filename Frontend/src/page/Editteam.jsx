@@ -35,7 +35,7 @@ const TeamForm = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:4000/api/v1/team/teamdetails",
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/team/teamdetails`,
         { withCredentials: true }
       );
 
@@ -95,7 +95,7 @@ const onSubmit = async (data) => {
     }
 
     const response = await axios.put(
-      `http://localhost:4000/api/v1/team/update/${leaderEmail}`, // adjust base URL if different
+      `${import.meta.env.VITE_PUBLIC_API}api/v1/team/update/${leaderEmail}`, // adjust base URL if different
       data
     );
 

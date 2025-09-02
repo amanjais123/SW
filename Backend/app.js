@@ -19,7 +19,7 @@ app.use('/assets', express.static('assets'));
 
 
 app.use(cors({
-  origin: 'http://localhost:5173', // your React app URL
+  origin: '*', // your React app URL
   credentials: true,
 }));
 

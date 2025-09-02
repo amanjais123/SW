@@ -13,7 +13,7 @@ const LeaderDashboard = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:4000/api/v1/team/teamdetails",
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/team/teamdetails`,
         { withCredentials: true }
       );
 
@@ -44,7 +44,7 @@ const LeaderDashboard = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:4000/api/v1/auth/logout",
+        `${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/logout`,
         {},
         { withCredentials: true }
       );

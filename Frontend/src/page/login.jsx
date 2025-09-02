@@ -20,7 +20,7 @@ const Login = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/v1/auth/login",
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/auth/login`,
         formData,
         { withCredentials: true }
       );

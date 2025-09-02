@@ -15,7 +15,7 @@ const navigate = useNavigate();
   useEffect(() => {
     const checkUser = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/v1/auth/me", {
+        const res = await axios.get(`${import.meta.env.VITE_PUBLIC_API}api/v1/auth/me`, {
           withCredentials: true,
         });
 
@@ -43,7 +43,7 @@ const navigate = useNavigate();
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:4000/api/v1/campusAmbassador/my-referrals",
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/campusAmbassador/my-referrals`,
         { withCredentials: true }
       );
       setReferrals(res.data.data || []);
@@ -59,7 +59,7 @@ const navigate = useNavigate();
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:4000/api/v1/campusAmbassador/create-referral",
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/campusAmbassador/create-referral`,
         { teamName, teamLeaderName },
         { withCredentials: true }
       );
@@ -77,7 +77,7 @@ const navigate = useNavigate();
    const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:4000/api/v1/auth/logout",
+        `${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/logout`,
         {},
         { withCredentials: true }
       );
