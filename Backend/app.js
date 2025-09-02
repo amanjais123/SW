@@ -19,7 +19,7 @@ app.use('/assets', express.static('assets'));
 
 
 app.use(cors({
-  origin: 'https://swiftwings.vercel.app/', // your React app URL
+  origin: 'https://swiftwings.vercel.app', // your React app URL
   credentials: true,
 }));
 
