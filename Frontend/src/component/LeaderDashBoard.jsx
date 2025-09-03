@@ -121,6 +121,12 @@ const LeaderDashboard = () => {
               <p className="text-gray-300 mt-2">
                 Click the "Register Team" button to register.
               </p>
+                <button
+                    className="w-full bg-yellow-500 hover:bg-yellow-700 mx-auto mt-3 rounded"
+                    onClick={() => navigate("/register")}
+                  >
+                    Register Team
+                  </button>
             </div>
           ) : (
             <div className="bg-black/70 backdrop-blur-md p-6 rounded-2xl shadow-xl text-white">
