@@ -74,7 +74,7 @@ const LeaderDashboard = () => {
       {/* Main Flex Container */}
       <div className="flex min-h-screen relative z-10">
         {/* Sidebar */}
-        <aside className="w-64 bg-black/80 text-white p-6 flex flex-col justify-between shadow-xl">
+        <aside className="hidden w-64 bg-black/80 text-white p-6 md:flex flex-col justify-between shadow-xl">
           <div>
             <h2 className="text-xl font-bold mb-6">Leader Dashboard</h2>
             <ul className="space-y-4">
