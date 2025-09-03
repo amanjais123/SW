@@ -327,13 +327,13 @@ function registrationEmailTemplate(teamname, Instituename) {
 
     <p style="font-size: 14px; color: #777777; text-align: center; line-height: 1.6;">
         Regards,<br>
-        <span style="font-weight: bold; color: #4CAF50;">Rajneesh Event Team</span>
+        <span style="font-weight: bold; color: #4CAF50;">Drone & IoT Club</span>
     </p>
 
     <!-- Footer section -->
     <div style="font-size: 12px; color: #999999; text-align: center; margin-top: 20px;">
-        <p>SwiftWing'25 - The Event of the Year</p>
-        <p>If you have any questions, feel free to <a href="mailto:info@swiftwing25.com" style="color: #4CAF50;">contact us</a>.</p>
+        <p>SwiftWing'25 - Fly fast , Fly Smart</p>
+        <p>If you have any questions, feel free to <a href="mailto:info.swiftwings@gmail.com" style="color: #4CAF50;">contact us</a>.</p>
     </div>
 </div>
 
