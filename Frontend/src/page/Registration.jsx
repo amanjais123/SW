@@ -34,7 +34,7 @@ const navigate  = useNavigate() ;
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/me`,
+          `${import.meta.env.VITE_PUBLIC_API}api/v1/auth/me`,
           { withCredentials: true }
         );
 
@@ -93,7 +93,7 @@ const navigate  = useNavigate() ;
       }
 
       await axios.post(
-        `${import.meta.env.VITE_PUBLIC_API}/api/v1/team/teams`,
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/team/teams`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

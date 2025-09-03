@@ -44,7 +44,7 @@ const LeaderDashboard = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_PUBLIC_API}/api/v1/auth/logout`,
+        `${import.meta.env.VITE_PUBLIC_API}api/v1/auth/logout`,
         {},
         { withCredentials: true }
       );
