@@ -308,7 +308,7 @@ function registrationEmailTemplate(teamname, Instituename) {
 
   
     <h2 style="color: #4CAF50; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px;">
-        🎉 Registration Successful!
+        Registration Successful !
     </h2>
 
     <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
