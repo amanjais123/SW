@@ -144,7 +144,7 @@ const LandingPage = () => {
       {/* President */}
       <div className="bg-white/10 p-4 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform">
         <img
-          src="/vijit.jpg"
+          src="/vijit2.jpg"
           alt="President"
           className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-yellow-500"
         />
@@ -166,7 +166,7 @@ const LandingPage = () => {
       {/* Vice President 2 */}
       <div className="bg-white/10 p-4 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform">
         <img
-          src="/ayush_k.jpg"
+          src="/ayush2.jpg"
           alt="Vice President"
           className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-yellow-500"
         />
@@ -196,7 +196,7 @@ const LandingPage = () => {
     <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex items-center justify-between hover:scale-105 transition-transform">
       <div className="flex items-center gap-4">
         <img
-          src="/amanjais1.jpg"
+          src="/aman2.jpg"
           alt="Developer 1"
           className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
         />
