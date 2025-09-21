@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
   const [submitting, setSubmitting] = useState(false);
-const navigate  = useNavigate() ;
+  const navigate = useNavigate();
   const {
     register,
     control,
@@ -98,9 +98,8 @@ const navigate  = useNavigate() ;
         { headers: { "Content-Type": "multipart/form-data" } }
       );
 
-      // Optional: reset form after submission
       reset();
- navigate("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       console.error("Error registering team:", err);
     } finally {
@@ -126,6 +125,7 @@ const navigate  = useNavigate() ;
     accountNo: "33542824744",
     accountName: "M.M.M. University of Technology Gorakhpur",
     ifsc: "SBIN0002578",
+    amount :"₹ 500"
   };
 
   return (
@@ -147,18 +147,34 @@ const navigate  = useNavigate() ;
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            {...register("teamName", { required: "Team Name is required" })}
-            placeholder="Team Name"
-            className="px-4 py-3 rounded-lg bg-black/40 text-white placeholder-gray-300 focus:outline-none"
-          />
-          <input
-            {...register("instituteName", {
-              required: "Institute Name is required",
-            })}
-            placeholder="Institute Name"
-            className="px-4 py-3 rounded-lg bg-black/40 text-white placeholder-gray-300 focus:outline-none"
-          />
+          <div>
+            <input
+              {...register("teamName", { required: "Team Name is required" })}
+              placeholder="Team Name"
+              className="px-4 py-3 rounded-lg bg-black/40 text-white placeholder-gray-300 
+                       border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+            />
+            {errors.teamName && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.teamName.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <input
+              {...register("instituteName", {
+                required: "Institute Name is required",
+              })}
+              placeholder="Institute Name"
+              className="px-4 py-3 rounded-lg bg-black/40 text-white placeholder-gray-300 
+                       border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+            />
+            {errors.instituteName && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.instituteName.message}
+              </p>
+            )}
+          </div>
         </div>
 
         {fields.map((field, index) => (
@@ -170,49 +186,106 @@ const navigate  = useNavigate() ;
               Member {index + 1} {index === 0 && "(Team Leader)"}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                {...register(`members.${index}.name`, { required: true })}
-                placeholder="Name"
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
-              />
+              <div>
+                <input
+                  {...register(`members.${index}.name`, {
+                    required: "Name is required",
+                  })}
+                  placeholder="Name"
+                  className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+                />
+                {errors.members?.[index]?.name && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.members[index].name.message}
+                  </p>
+                )}
+              </div>
+
               <input
                 {...register(`members.${index}.rollNo`)}
                 placeholder="Roll No"
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
+                className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
               />
-              <select
-                {...register(`members.${index}.branch`, { required: true })}
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
-              >
-                <option value="">Select Branch</option>
-                {branches.map((b) => (
-                  <option key={b} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-              <select
-                {...register(`members.${index}.year`, { required: true })}
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
-              >
-                <option value="">Select Year</option>
-                {years.map((y) => (
-                  <option key={y} value={y}>
-                    {y}
-                  </option>
-                ))}
-              </select>
-              <input
-                {...register(`members.${index}.mobile`, { required: true })}
-                placeholder="Mobile No"
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
-              />
-              <input
-                {...register(`members.${index}.email`, { required: true })}
-                placeholder="Email"
-                className="px-4 py-2 rounded-lg bg-black/40 text-white"
-              />
+
+              <div>
+                <select
+                  {...register(`members.${index}.branch`, {
+                    required: "Branch is required",
+                  })}
+                  className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+                >
+                  <option value="">Select Branch</option>
+                  {branches.map((b) => (
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
+                  ))}
+                </select>
+                {errors.members?.[index]?.branch && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.members[index].branch.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <select
+                  {...register(`members.${index}.year`, {
+                    required: "Year is required",
+                  })}
+                  className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+                >
+                  <option value="">Select Year</option>
+                  {years.map((y) => (
+                    <option key={y} value={y}>
+                      {y}
+                    </option>
+                  ))}
+                </select>
+                {errors.members?.[index]?.year && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.members[index].year.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <input
+                  {...register(`members.${index}.mobile`, {
+                    required: "Mobile No is required",
+                  })}
+                  placeholder="Mobile No"
+                  className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+                />
+                {errors.members?.[index]?.mobile && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.members[index].mobile.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <input
+                  {...register(`members.${index}.email`, {
+                    required: "Email is required",
+                  })}
+                  placeholder="Email"
+                  className="px-4 py-2 rounded-lg bg-black/40 text-white 
+                           border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+                />
+                {errors.members?.[index]?.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.members[index].email.message}
+                  </p>
+                )}
+              </div>
             </div>
+
             {index > 0 && (
               <button
                 type="button"
@@ -251,19 +324,40 @@ const navigate  = useNavigate() ;
           <p className="text-white">Account Number: {bankDetails.accountNo}</p>
           <p className="text-white">Account Name: {bankDetails.accountName}</p>
           <p className="text-white">IFSC Code: {bankDetails.ifsc}</p>
+           <p className="text-white">Amount: {bankDetails.amount}</p>
 
-          <input
-            {...register("transactionNo", { required: true })}
-            placeholder="Transaction Id"
-            className="px-4 py-2 rounded-lg bg-black/20 text-white mt-4"
-          />
+          <div>
+            <input
+              {...register("transactionNo", {
+                required: "Transaction Id is required",
+              })}
+              placeholder="Transaction Id"
+              className="px-4 py-2 rounded-lg bg-black/20 text-white mt-4 
+                       border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+            />
+            {errors.transactionNo && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.transactionNo.message}
+              </p>
+            )}
+          </div>
 
           <h2 className="text-white mt-4">Upload Screenshot of Payment</h2>
-          <input
-            type="file"
-            {...register("receiptFile", { required: true })}
-            className="px-4 py-2 rounded-lg bg-black/20 text-white"
-          />
+          <div>
+            <input
+              type="file"
+              {...register("receiptFile", {
+                required: "Payment screenshot is required",
+              })}
+              className="px-4 py-2 rounded-lg bg-black/20 text-white 
+                       border border-gray-600 focus:border-yellow-400 focus:outline-none w-full"
+            />
+            {errors.receiptFile && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.receiptFile.message}
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="flex justify-between items-center mt-6">
@@ -279,7 +373,9 @@ const navigate  = useNavigate() ;
             type="submit"
             disabled={submitting}
             className={`px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg shadow-lg transition-transform hover:scale-105 ${
-              submitting ? "opacity-50 cursor-not-allowed" : "hover:from-orange-600 hover:to-yellow-500"
+              submitting
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:from-orange-600 hover:to-yellow-500"
             }`}
           >
             {submitting ? "Submitting..." : "Submit"}

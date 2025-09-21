@@ -257,8 +257,44 @@ const LandingPage = () => {
         </a>
       </div>
     </div>
+
+    {/* Dev 3 - Centered below */}
+    <div className="md:col-span-2 flex justify-center">
+      <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex items-center justify-between w-full md:w-[55%] hover:scale-105 transition-transform">
+        <div className="flex items-center gap-4">
+          <img
+            src="/ankit.jpg"
+            alt="Developer 3"
+            className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
+          />
+          <div>
+            <h3 className="text-lg font-semibold">Ankit Srivastav</h3>
+            <p className="text-sm text-gray-300">CSE 3rd year</p>
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <a
+            href="https://instagram.com/vaibhav._sri"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-500 hover:text-pink-400"
+          >
+            <FaInstagram size={22} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ankit2005/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-400"
+          >
+            <FaLinkedin size={22} />
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 </section>
 
 
