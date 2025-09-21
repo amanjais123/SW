@@ -187,25 +187,25 @@ const LandingPage = () => {
     </div>
   </div>
 
-<h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-400 mb-6 mt-8">
+ <h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-400 mb-6 mt-8">
   Developers
 </h2>
+
 <div className="w-full flex justify-center mt-8">
-  <div className="w-[70%] grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div className="w-[70%] md:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
     {/* Dev 1 */}
-    <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex items-center justify-between hover:scale-105 transition-transform">
-      <div className="flex items-center gap-4">
-        <img
-          src="/aman2.jpg"
-          alt="Developer 1"
-          className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
-        />
-        <div>
-          <h3 className="text-lg font-semibold">Aman Jaiswal</h3>
-          <p className="text-sm text-gray-300">ECE(IoT) 3rd year</p>
-        </div>
+    <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-4 hover:scale-105 transition-transform">
+      <img
+        src="/aman2.jpg"
+        alt="Developer 1"
+        className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
+      />
+      <div className="text-center md:text-left">
+        <h3 className="text-lg font-semibold">Aman Jaiswal</h3>
+        <p className="text-sm text-gray-300">ECE(IoT) 3rd year</p>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 justify-center">
         <a
           href="https://www.instagram.com/ace_aman_/"
           target="_blank"
@@ -226,19 +226,17 @@ const LandingPage = () => {
     </div>
 
     {/* Dev 2 */}
-    <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex items-center justify-between hover:scale-105 transition-transform">
-      <div className="flex items-center gap-4">
-        <img
-          src="/rajneesh.jpg"
-          alt="Developer 2"
-          className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
-        />
-        <div>
-          <h3 className="text-lg font-semibold">Rajneesh Yadav</h3>
-          <p className="text-sm text-gray-300">ECE 3rd year</p>
-        </div>
+    <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-4 hover:scale-105 transition-transform">
+      <img
+        src="/rajneesh.jpg"
+        alt="Developer 2"
+        className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
+      />
+      <div className="text-center sm:text-left">
+        <h3 className="text-lg font-semibold">Rajneesh Yadav</h3>
+        <p className="text-sm text-gray-300">ECE 3rd year</p>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 justify-center">
         <a
           href="https://www.instagram.com/rajneeshyadav._/"
           target="_blank"
@@ -258,21 +256,19 @@ const LandingPage = () => {
       </div>
     </div>
 
-    {/* Dev 3 - Centered below */}
+    {/* Dev 3 */}
     <div className="md:col-span-2 flex justify-center">
-      <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex items-center justify-between w-full md:w-[55%] hover:scale-105 transition-transform">
-        <div className="flex items-center gap-4">
-          <img
-            src="/ankit.jpg"
-            alt="Developer 3"
-            className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
-          />
-          <div>
-            <h3 className="text-lg font-semibold">Ankit Srivastav</h3>
-            <p className="text-sm text-gray-300">CSE 3rd year</p>
-          </div>
+      <div className="bg-white/10 p-4 rounded-2xl shadow-lg flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-4 w-full md:w-[55%] hover:scale-105 transition-transform">
+        <img
+          src="/ankit.jpg"
+          alt="Developer 3"
+          className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
+        />
+        <div className="text-center sm:text-left">
+          <h3 className="text-lg font-semibold">Ankit Srivastav</h3>
+          <p className="text-sm text-gray-300">CSE 3rd year</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 justify-center">
           <a
             href="https://instagram.com/vaibhav._sri"
             target="_blank"
@@ -292,8 +288,10 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
+
   </div>
 </div>
+
 
 </section>
 
