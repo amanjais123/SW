@@ -128,7 +128,7 @@ const LandingPage = () => {
           alt="Event Coordinator"
           className="w-28 h-28 mx-auto rounded-full object-cover border-4 border-yellow-500"
         />
-        <h3 className="mt-4 text-xl font-semibold">Dr Rajan Mishra</h3>
+        <h3 className="mt-4 text-xl font-semibold">Dr. Rajan Mishra</h3>
         <p className="text-sm text-gray-300">Event Coordinator</p>
         <p className="mt-2 text-gray-200 italic">
           "Excited to organize a platform for aerial excellence and teamwork."
