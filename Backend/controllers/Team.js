@@ -3,6 +3,7 @@ const cloudinary=require('cloudinary').v2;
 const mongoose=require('mongoose');
 const mailSender = require('../utils/mailsender');
 
+const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/Jp6tCfG3zPbDEPC15K4Xkc?mode=wwc"; // 🔹 Added
 
 function isfiletypesupported(type, supportedTypes) {
     return supportedTypes.includes(type);
@@ -120,7 +121,7 @@ exports.TeamDetails = async (req, res) => {
         await mailSender(
             allEmails.join(","),
             "🎉 Team Registration Successful",
-            registrationEmailTemplate(teamname, Instituename)
+            registrationEmailTemplate(teamname, Instituename,WHATSAPP_GROUP_LINK)
         );
 
         res.status(201).json({
@@ -300,46 +301,47 @@ exports.updateTeam = async (req, res) => {
   }
 };
 
-
-
-function registrationEmailTemplate(teamname, Instituename) {
+function registrationEmailTemplate(teamname, Instituename, whatsappGroupLink) {
     return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
-  
-    <h2 style="color: #4CAF50; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px;">
-        Registration Successful !
-    </h2>
+        <h2 style="color: #4CAF50; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px;">
+            Registration Successful !
+        </h2>
 
-    <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
-        Congratulations 🎉,
-    </p>
+        <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
+            Congratulations 🎉,
+        </p>
 
-    <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
-        Your team <b>${teamname}</b> from <b>${Instituename}</b> has been successfully registered for the <b>SwiftWing'25</b> event!
-    </p>
+        <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
+            Your team <b>${teamname}</b> from <b>${Instituename}</b> has been successfully registered for the <b>SwiftWing'25</b> event!
+        </p>
 
-    <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 30px;">
-        Get ready to showcase your talent! We will share more details with you soon. Stay tuned for upcoming updates!
-    </p>
+        <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
+            Get ready to showcase your talent! We will share more details with you soon. Stay tuned for upcoming updates!
+        </p>
 
-    <hr style="border: none; border-top: 1px solid #ddd; margin-bottom: 30px;">
+        <!-- 🔹 Added WhatsApp group section -->
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="font-size: 16px; color: #333333; margin-bottom: 15px;">
+                👉 Join our official WhatsApp group for important announcements and event updates:
+            </p>
+            <a href="${whatsappGroupLink}" target="_blank" style="display: inline-block; background-color: #25D366; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: bold;">
+                Join WhatsApp Group
+            </a>
+        </div>
 
-    <p style="font-size: 14px; color: #777777; text-align: center; line-height: 1.6;">
-        Regards,<br>
-        <span style="font-weight: bold; color: #4CAF50;">Drone & IoT Club</span>
-    </p>
+        <hr style="border: none; border-top: 1px solid #ddd; margin-top: 40px; margin-bottom: 30px;">
 
-    <!-- Footer section -->
-    <div style="font-size: 12px; color: #999999; text-align: center; margin-top: 20px;">
-        <p>SwiftWing'25 - Fly fast , Fly Smart</p>
-        <p>If you have any questions, feel free to <a href="mailto:info.swiftwings@gmail.com" style="color: #4CAF50;">contact us</a>.</p>
+        <p style="font-size: 14px; color: #777777; text-align: center; line-height: 1.6;">
+            Regards,<br>
+            <span style="font-weight: bold; color: #4CAF50;">Drone & IoT Club</span>
+        </p>
+
+        <div style="font-size: 12px; color: #999999; text-align: center; margin-top: 20px;">
+            <p>SwiftWing'25 - Fly fast, Fly Smart</p>
+            <p>If you have any questions, feel free to <a href="mailto:info.swiftwings@gmail.com" style="color: #4CAF50;">contact us</a>.</p>
+        </div>
     </div>
-</div>
-
     `;
 }
-
-
-
-
