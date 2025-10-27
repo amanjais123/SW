@@ -128,7 +128,7 @@ const LeaderDashboard = () => {
                     Register Team
                   </button> */}
                   <div className="mt-12">
-                    <h2 className="text-centre text-yellow-500 font-bold">
+                    <h2 className="text-4xl text-centre text-yellow-500 font-bold">
                       Registration Closed !! 
                     </h2>
                   </div>
