@@ -80,12 +80,12 @@ const LeaderDashboard = () => {
             <ul className="space-y-4">
               {!team ? (
                 <li>
-                  <button
+                  {/* <button
                     className="w-full bg-indigo-500 hover:bg-indigo-700 p-2 rounded"
                     onClick={() => navigate("/register")}
                   >
                     Register Team
-                  </button>
+                  </button> */}
                 </li>
               ) : (
                 <li>
@@ -115,7 +115,7 @@ const LeaderDashboard = () => {
         <main className="flex-1 p-10 overflow-auto">
           {!team ? (
             <div className="text-center mt-20 text-white">
-              <h2 className="text-2xl font-bold text-gray-200">
+              {/* <h2 className="text-2xl font-bold text-gray-200">
                 No Team Registered Yet
               </h2>
               <p className="text-gray-300 mt-2">
@@ -126,7 +126,12 @@ const LeaderDashboard = () => {
                     onClick={() => navigate("/register")}
                   >
                     Register Team
-                  </button>
+                  </button> */}
+                  <div className="mt-12">
+                    <h2 className="text-centre text-yellow-500 font-bold">
+                      Registration Closed !! 
+                    </h2>
+                  </div>
             </div>
           ) : (
             <div className="bg-black/70 backdrop-blur-md p-6 rounded-2xl shadow-xl text-white">

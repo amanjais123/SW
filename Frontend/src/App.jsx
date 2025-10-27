@@ -17,7 +17,7 @@ export default function App() {
     <>
        <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/register" element={<RegistrationPage />} />
+      {/* <Route path="/register" element={<RegistrationPage />} /> */}
       <Route path="/TeamsPage" element={<TeamsPage />} />
       <Route path="/signup" element={<SignupPage />} />
  <Route path="/login" element={<Login />} />
